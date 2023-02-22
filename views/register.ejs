@@ -10,46 +10,43 @@
 </head>
 
 <body>
-    <header>
-    </header>
+
     <main>
-        <form method="POST" action="/">
-            <div>
-                <p>姓名
-                    <span>
-                        <input type="text">
-                    </span>
-                </p>
-                <p>電話
-                    <span>
-                        <input type="text">
-                    </span>
-                </p>
-                <p>工作項目
-                    <span>
-                        <input type="text">
-                    </span>
-                </p>
-                <p>帳號
-                    <span>
-                        <input type="text">
-                    </span>
-                </p>
-                <p>密碼
-                    <span>
-                        <input type="text" placeholder="輸入密碼">
-                    </span>
-                </p>
-                <p>再次輸入密碼
-                    <span>
-                        <input type="text" placeholder="再次輸入密碼">
-                        <span>
-                            <button type="submit">註冊</button>
-                        </span>
-                    </span>
-                </p>
-            </div>
-        </form>
+        <div>
+            <form method="POST" action="/register">
+                <div>
+                    <label>姓名
+                        <input type="text" name='username' value='JamesWu'>
+                    </label>
+                </div>
+                <div>
+                    <label>電話
+                        <input type="text" name='tel'>
+                    </label>
+                </div>
+                <div>
+                    <label>工作項目
+                        <input type="text" name='work_item'>
+                    </label>
+                </div>
+                <div>
+                    <label>帳號
+                        <input type="text" name='account'>
+                    </label>
+                </div>
+                <div>
+                    <label>密碼
+                        <input type="text" placeholder="輸入密碼" name='psw'>
+                    </label>
+                </div>
+                <div>
+                    <label>再次輸入密碼
+                        <input type="text" placeholder="再次輸入密碼" name='psw2'>
+                    </label>
+                    <button type="submit">註冊</button>
+                </div>
+            </form>
+        </div>
     </main>
 </body>
 
