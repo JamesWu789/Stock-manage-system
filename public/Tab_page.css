@@ -1,0 +1,117 @@
+
+* {								/* 全局設定 */
+	margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  background-color: rgb(189, 84, 14);
+
+}
+
+/* .active{
+  font-size: 20px;  
+  background-color: rgb(44, 34, 66);
+  color: rgb(49, 209, 81);
+} */
+
+a{
+  block-size: 50px;       /* 上方框高度 */
+  color:rgb(8, 6, 6);
+  display:inline-block;
+  text-decoration: none;
+  margin:20px auto;
+  align-items: center;
+  background-color: rgb(238, 179, 140);
+  height: 3rem;
+  width: 8rem;
+}
+
+ul li{
+  margin-left: 1em;
+  list-style-type: none;
+  align-items: center;
+}
+
+
+.tab-content {        /* 底下外框設定 */
+  display:flex;
+  flex-direction:column;
+  margin:20px auto;
+  max-width: 460px;
+  height: 580px;
+  background-color: rgb(189, 84, 14);
+  /* margin-bottom:20px;
+  padding:30px 40px; */
+  /* position:relative; */
+}
+
+
+.form-group{
+  color:#fff;
+  margin-bottom: 1rem;
+}
+label .form-group{
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.form-control .form-group{
+  display: block;
+  width: 100%;
+  -webkit-appearance: none;
+  background-color: #EAF0ED;
+  height: auto;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  
+}
+
+.btn-group{         
+  width: 100%;
+  margin-bottom: 30px;
+  position: relative;
+  display: flex;          /* 上方文字能左右排列 */
+  justify-content: center;   /* 上方文字能左右平均*/
+  line-height: 40px;   /* 上框高度 */   
+  padding: 0;
+  font-size: 20px;
+  background-color: rgb(189, 84, 14);
+  border-radius: 0;
+  color: #EAF0ED;
+  text-align:center;
+  font-weight: bold;
+  border: 1px solid #EAF0ED;
+}
+
+::placeholder {
+  color: #ffffff;
+  }
+
+input {
+  border:1px solid #ffffff;;
+  border-radius: 3px;
+  padding: 0 8px; 
+}
+
+.form-control{
+  border:1px solid #EAF0ED;
+}
+
+#plus-icon{
+  font-size: 1.5em; 
+  position: absolute;
+  top: 7.25rem;
+  right: 28rem;
+  background: none;
+}
+
+#garbage-icon{
+  font-size: 1.5em;
+  position: absolute;
+  top: 7rem;
+  right: 26rem;
+  background: none;
+}

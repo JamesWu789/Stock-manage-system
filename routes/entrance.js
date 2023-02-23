@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     console.log('ent:post');
-    res.render('entrance');
+    res.redirect('/main');
 });
 
 module.exports = router;
