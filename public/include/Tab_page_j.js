@@ -12,6 +12,14 @@ $(function () {
 
     // 製作tabs
     $("#tabs").tabs();
+
+    // 按+號跳出視窗
+    $("#plus-icon").click(function () {
+        $(".modal, .overlay").removeClass("hidden");
+    });
+
+    $(".close-modal").click(function () {           // 按esc關閉
+        $(".overlay, .modal").addClass("hidden");
+    });
+
 });
-
-
