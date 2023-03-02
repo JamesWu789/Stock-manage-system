@@ -15,7 +15,7 @@
 
 <body>
     <div class="tab-content" id="tabs">
-        <ul class="btn-group checkout-btn" role="group">
+        <ul class="btn-group" role="group">
             <li>
                 <a href="#tabs-1" class="btn active">庫存</a>
             </li>
@@ -33,27 +33,113 @@
 
         <!-- 庫存 -->
         <div id="tabs-1">
-            <a href='#' id="plus-icon">+</a>
-            <div class="modal hidden">
+            <a href='#' id="plus-icon">
+                <img src="/plus.png" alt="新增">
+            </a>
+            <form class="modal hidden" action="/main" method="POST">
                 <button class="close-modal">&times;</button>
                 <h1>新增資料</h1>
-                <p>
-                    增加資料內容(待增加)
-                </p>
-            </div>
+                <label>供應商
+                    <input type="text" id="provider" name="provider">
+                </label>
+                <br>
+                <label>編號
+                    <input type="text" id="idNumber" name="idNumber">
+                </label>
+                <br>
+                <label>尺寸
+                    <input type="text" id="specification" name="specification">
+                </label>
+                <br>
+                <label>數量
+                    <input type="text" id="quantity" name="quantity">
+                </label>
+                <br>
+                <label>價格
+                    <input type="text" id="price" name="price">
+                </label>
+                <br>
+                <label>材質
+                    <input type="text" id="texture" name="texture">
+                </label>
+                <br>
+                <button type="submit" class="Add-data">新增</button>
+            </form>
             <div class="overlay hidden"></div>
 
-            <a href='##' id="garbage-icon">🗑</a>
-            <form class="form-content">
-                <div class="form-group">
-                    <label for="email">電子郵件信箱</label>
-                    <input type="email" class="form-control" id="email" placeholder="example@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="num">統一編號（選填）</label>
-                    <input type="number" class="form-control" id="num" placeholder="12345678">
-                </div>
-            </form>
+            <a href='##' id="garbage-icon">
+                <img src="/trash.png" alt="刪除">
+            </a>
+            <table class="scroll">
+                <thead>
+                    <tr>
+                        <th>供應商</th>
+                        <th>編號</th>
+                        <th>尺寸</th>
+                        <th>數量</th>
+                        <th>價格</th>
+                        <th>材質</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Content 1</td>
+                        <td>Content 2</td>
+                        <td>Content 3</td>
+                        <td>Content 4</td>
+                        <td>Content 5</td>
+                        <td>Content 6</td>
+                    </tr>
+                    <tr>
+                        <td>Content 1</td>
+                        <td>Content 2</td>
+                        <td>Content 3</td>
+                        <td>Content 4</td>
+                        <td>Content 5</td>
+                        <td>Content 6</td>
+                    </tr>
+                    <tr>
+                        <td>Content 1</td>
+                        <td>Content 2</td>
+                        <td>Content 3</td>
+                        <td>Content 4</td>
+                        <td>Content 5</td>
+                        <td>Content 6</td>
+                    </tr>
+                    <tr>
+                        <td>Content 1</td>
+                        <td>Content 2</td>
+                        <td>Content 3</td>
+                        <td>Content 4</td>
+                        <td>Content 5</td>
+                        <td>Content 6</td>
+                    </tr>
+                    <tr>
+                        <td>Content 1</td>
+                        <td>Content 2</td>
+                        <td>Content 3</td>
+                        <td>Content 4</td>
+                        <td>Content 5</td>
+                        <td>Content 6</td>
+                    </tr>
+                    <tr>
+                        <td>Content 1</td>
+                        <td>Content 2</td>
+                        <td>Content 3</td>
+                        <td>Content 4</td>
+                        <td>Content 5</td>
+                        <td>Content 6</td>
+                    </tr>
+                    <tr>
+                        <td>Content 1</td>
+                        <td>Content 2</td>
+                        <td>Content 3</td>
+                        <td>Content 4</td>
+                        <td>Content 5</td>
+                        <td>Content 6</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- 工作紀錄 -->
@@ -61,7 +147,7 @@
             <form class="form-content">
 
                 <div class="form-group">
-                    <label for="city">地址</label>
+                    <label>地址</label>
                     <select id="city" class="form-control">
                         <option selected>高雄市</option>
                         <option>台北市</option>
@@ -70,7 +156,7 @@
                 <div class="form-group">
                     <div class="form-group form-check mb-1 text-right">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">同運送地址</label>
+                        <label class="form-check-label">同運送地址</label>
                     </div>
                     <select id="dist" class="form-control">
                         <option selected>新興區</option>
@@ -82,7 +168,20 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="num">統一編號（選填）</label>
+                    <label>統一編號（選填）</label>
+                    <input type="number" class="form-control" id="num" placeholder="12345678">
+                </div>
+            </form>
+        </div>
+        <!-- 工作紀錄 -->
+        <div id="tabs-3">
+            <form class="form-content">
+                <div class="form-group">
+                    <label>電子郵件信箱</label>
+                    <input type="email" class="form-control" id="email" placeholder="example@email.com">
+                </div>
+                <div class="form-group">
+                    <label>統一編號（選填）</label>
                     <input type="number" class="form-control" id="num" placeholder="12345678">
                 </div>
             </form>

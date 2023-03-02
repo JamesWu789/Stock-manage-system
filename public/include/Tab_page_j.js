@@ -18,8 +18,31 @@ $(function () {
         $(".modal, .overlay").removeClass("hidden");
     });
 
-    $(".close-modal").click(function () {           // 按esc關閉
+    $(".close-modal, .Add-data").click(function () {       // 按esc關閉 
+        $(".overlay, .modal").addClass("hidden");
+        $("form").submit(function () {                  // 按esc後避免回傳post
+            return false;
+        });
+    });
+
+    $(".Add-data").click(function () {                  // 按button後關閉表單
         $(".overlay, .modal").addClass("hidden");
     });
 
+    //table專用
+    let $table = $('.scroll'),
+        $bodyCells = $table.find('tbody tr:first').children(),
+        colWidth;
+    // Adjust the width of thead cells when window resizes
+    $(window).resize(function () {
+        // Get the tbody columns width array
+        colWidth = $bodyCells.map(function () {
+            return $(this).width();
+        }).get();
+        // Set the width of thead columns
+        $table.find('thead tr').children().each(function (i, v) {
+            $(v).width(colWidth[i]);
+        });
+    }).resize();
 });
+
