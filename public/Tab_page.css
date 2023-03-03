@@ -14,6 +14,7 @@
 } */
 
 a{
+  position: relative;
   block-size: 50px;       /* 上方框高度 */
   color:rgb(8, 6, 6);
   display:inline-block;
@@ -23,6 +24,12 @@ a{
   background-color: rgb(238, 179, 140);
   height: 3rem;
   width: 8rem;
+}
+
+.logout{
+  position: fixed;
+  top: 5%;
+  right: 55%;
 }
 
 ul li{

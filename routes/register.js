@@ -11,13 +11,6 @@ router.get('/register', (req, res, next) => {
     // console.log(req.body.username);
 });
 
-const products = [];
-router.post('/register', (req, res, next) => {
-    console.log('reg:post');
-    // products.push({ name: req.body.name });
-    console.log(req.body);
-    res.redirect('/');
-});
 
 
 

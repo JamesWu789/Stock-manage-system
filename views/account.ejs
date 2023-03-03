@@ -1,0 +1,29 @@
+<%- include('./include/head.ejs') %>
+    <link rel="stylesheet" href="/Tab_page.css">
+
+    <%- include('./include/anchor.ejs') %>
+
+
+        <!-- 庫存 -->
+        <% for (let account of accou) { %>
+            <article class="card product-item">
+                <header class="card__header">
+                    <h1 class="product__title">
+                        <%= account.workerName %>
+                    </h1>
+                </header>
+                <div class="card__image">
+                    <img src="/pic/<%= account.workerName %>.jpg" alt="<%= account.workerName %>">
+                </div>
+                <div class="card__content">
+                    <h2 class="product__price">$
+                        <%= account.workItem %>
+                    </h2>
+                    <p class="product__description">
+                        <%= account.phoneNum %>
+                    </p>
+                </div>
+
+            </article>
+            <% } %>
+                </body>

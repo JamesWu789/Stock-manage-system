@@ -9,7 +9,7 @@
 
 
         <!-- 庫存 -->
-        <div id="tabs-1">
+        <div>
             <a href='#' id="plus-icon">
                 <img src="/plus.png" alt="新增">
             </a>
@@ -21,7 +21,7 @@
                 </label>
                 <br>
                 <label>編號
-                    <input type="text" id="idNumber" name="idNumber">
+                    <input type="number" id="idNumber" name="idNumber">
                 </label>
                 <br>
                 <label>尺寸
@@ -29,11 +29,11 @@
                 </label>
                 <br>
                 <label>數量
-                    <input type="text" id="quantity" name="quantity">
+                    <input type="number" id="quantity" name="quantity">
                 </label>
                 <br>
                 <label>價格
-                    <input type="text" id="price" name="price">
+                    <input type="number" id="price" name="price">
                 </label>
                 <br>
                 <label>材質
@@ -50,6 +50,7 @@
             <table class="scroll" id="myTable">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>供應商</th>
                         <th>編號</th>
                         <th>尺寸</th>
@@ -61,6 +62,9 @@
                 <tbody>
                     <% for (let num = 0; num < prods.length; num++){ %>
                         <tr>
+                            <td>
+                                <input type="checkbox" id="foo<%=num%>" />
+                            </td>
                             <td>
                                 <%= prods[num]["provider"] %>
                             </td>
