@@ -11,11 +11,9 @@ exports.postAddProduct = (req, res, next) => {
     const product = new Product(provider, idNumber, specification, quantity, price, texture);
     product
         .save()
-        .then(result => {
-            // console.log(result);
+        .then(() => {
             console.log('Created Product');
             console.log(req.body);
-            // res.redirect('/main');
         })
         .catch(err => {
             console.log(err);
@@ -23,13 +21,13 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
+    console.log("main:get");
     Product.fetchAll()
         .then(products => {
-            res.render('admin/products', {
-                prods: products,
-                pageTitle: 'Admin Products',
-                path: '/admin/products'
+            res.render('Tab_page', {
+                prods: products
             });
+            // console.log("products:", products);
         })
         .catch(err => console.log(err));
 };

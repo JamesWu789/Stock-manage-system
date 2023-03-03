@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tab Page</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<%- include('./include/head.ejs') %>
     <!--為了tab用 -->
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="include/Tab_page_j.js">  </script>
+    <!--為了tableSorter用 -->
+    <script type="text/javascript" src="/include/jquery.tablesorter.js"></script>
     <link rel="stylesheet" href="/Tab_page.css">
-</head>
 
-<body>
-    <div class="tab-content" id="tabs">
-        <ul class="btn-group" role="group">
-            <li>
-                <a href="#tabs-1" class="btn active">庫存</a>
-            </li>
-            <li>
-                <a href="#tabs-2" class="btn work">工作紀錄</a>
-            </li>
-            <li>
-                <a href="#tabs-3" class="btn">資料修改紀錄</a>
-            </li>
-            <li>
-                <a href="#tabs-4" class="btn">帳號管理</a>
-            </li>
-        </ul>
+    <%- include('./include/anchor.ejs') %>
 
 
         <!-- 庫存 -->
@@ -70,7 +47,7 @@
             <a href='##' id="garbage-icon">
                 <img src="/trash.png" alt="刪除">
             </a>
-            <table class="scroll">
+            <table class="scroll" id="myTable">
                 <thead>
                     <tr>
                         <th>供應商</th>
@@ -82,109 +59,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Content 1</td>
-                        <td>Content 2</td>
-                        <td>Content 3</td>
-                        <td>Content 4</td>
-                        <td>Content 5</td>
-                        <td>Content 6</td>
-                    </tr>
-                    <tr>
-                        <td>Content 1</td>
-                        <td>Content 2</td>
-                        <td>Content 3</td>
-                        <td>Content 4</td>
-                        <td>Content 5</td>
-                        <td>Content 6</td>
-                    </tr>
-                    <tr>
-                        <td>Content 1</td>
-                        <td>Content 2</td>
-                        <td>Content 3</td>
-                        <td>Content 4</td>
-                        <td>Content 5</td>
-                        <td>Content 6</td>
-                    </tr>
-                    <tr>
-                        <td>Content 1</td>
-                        <td>Content 2</td>
-                        <td>Content 3</td>
-                        <td>Content 4</td>
-                        <td>Content 5</td>
-                        <td>Content 6</td>
-                    </tr>
-                    <tr>
-                        <td>Content 1</td>
-                        <td>Content 2</td>
-                        <td>Content 3</td>
-                        <td>Content 4</td>
-                        <td>Content 5</td>
-                        <td>Content 6</td>
-                    </tr>
-                    <tr>
-                        <td>Content 1</td>
-                        <td>Content 2</td>
-                        <td>Content 3</td>
-                        <td>Content 4</td>
-                        <td>Content 5</td>
-                        <td>Content 6</td>
-                    </tr>
-                    <tr>
-                        <td>Content 1</td>
-                        <td>Content 2</td>
-                        <td>Content 3</td>
-                        <td>Content 4</td>
-                        <td>Content 5</td>
-                        <td>Content 6</td>
-                    </tr>
+                    <% for (let num = 0; num < prods.length; num++){ %>
+                        <tr>
+                            <td>
+                                <%= prods[num]["provider"] %>
+                            </td>
+                            <td>
+                                <%= prods[num]["idNumber"] %>
+                            </td>
+                            <td>
+                                <%= prods[num]["specification"] %>
+                            </td>
+                            <td>
+                                <%= prods[num]["quantity"] %>
+                            </td>
+                            <td>
+                                <%= prods[num]["price"] %>
+                            </td>
+                            <td>
+                                <%= prods[num]["texture"] %>
+                            </td>
+                        </tr>
+                        <% } %>
                 </tbody>
             </table>
         </div>
-
-        <!-- 工作紀錄 -->
-        <div id="tabs-2">
-            <form class="form-content">
-
-                <div class="form-group">
-                    <label>地址</label>
-                    <select id="city" class="form-control">
-                        <option selected>高雄市</option>
-                        <option>台北市</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <div class="form-group form-check mb-1 text-right">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label">同運送地址</label>
-                    </div>
-                    <select id="dist" class="form-control">
-                        <option selected>新興區</option>
-                        <option>三民區</option>
-                    </select>
-                </div>
-                <div class="form-group ">
-                    <input type="text" class="form-control" placeholder="幸福路 520號">
-                </div>
-
-                <div class="form-group">
-                    <label>統一編號（選填）</label>
-                    <input type="number" class="form-control" id="num" placeholder="12345678">
-                </div>
-            </form>
-        </div>
-        <!-- 工作紀錄 -->
-        <div id="tabs-3">
-            <form class="form-content">
-                <div class="form-group">
-                    <label>電子郵件信箱</label>
-                    <input type="email" class="form-control" id="email" placeholder="example@email.com">
-                </div>
-                <div class="form-group">
-                    <label>統一編號（選填）</label>
-                    <input type="number" class="form-control" id="num" placeholder="12345678">
-                </div>
-            </form>
-        </div>
-    </div>
-</body>
+        </body>
