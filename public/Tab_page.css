@@ -158,11 +158,11 @@ table.scroll {
   width: 100%; 
   border-collapse: collapse;
   border-spacing: 0;
-  border: 2px solid rgb(177, 175, 175);
+  border: 2px solid rgb(255, 255, 255);
 }
 table.scroll tbody, table.scroll thead { display: block; }
 thead tr th { 
-  color: rgb(177, 175, 175);
+  color: rgb(255, 255, 255);
   height: 30px;
   line-height: 30px;
   /* text-align: left; */
@@ -173,11 +173,11 @@ table.scroll tbody{
   overflow-x: auto;
   z-index: 2;
 }
-tbody { border-top: 2px solid rgb(177, 175, 175); }
+tbody { border-top: 2px solid rgb(255, 255, 255); }
 tbody td, thead th {
-  color: #bbbaba;
+  color: rgb(255, 255, 255);
   /* width: 20%; */ /* Optional */
-  border-right: 1px solid rgb(177, 175, 175);
+  border-right: 1px solid rgb(255, 255, 255);
   /* white-space: nowrap; */
   z-index: 2;
 }
@@ -192,7 +192,7 @@ tbody td, thead th {
   width: 19%;  
 }
 td{
-  border-bottom:#ccc 1px solid;
+  border-bottom:rgb(255, 255, 255) 1px solid;
 }
 
 

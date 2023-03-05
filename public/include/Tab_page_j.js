@@ -27,6 +27,23 @@ $(function () {
         $(".overlay, .modal").addClass("hidden");
     });
 
+
+    // 按鉛筆號跳出視窗
+    // $("#edit-icon").click(function () {
+    //     $(".edit-form, .overlay").removeClass("hidden");
+    // });
+
+    // $(".close-modal").click(function () {       // 按esc關閉 
+    //     $(".overlay, .edit-form").addClass("hidden");
+    //     $("form").submit(function () {                  // 按esc後避免回傳post
+    //         return false;
+    //     });
+    // });
+
+    // $(".edit-data").click(function () {                  // 按button後關閉表單
+    //     $(".overlay, .edit-form").addClass("hidden");
+    // });
+
     //table專用
     let $table = $('.scroll'),
         $bodyCells = $table.find('tbody tr:first').children(),

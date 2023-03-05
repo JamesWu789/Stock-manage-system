@@ -7,6 +7,8 @@ const router = express.Router();
 const adminController_prod = require('../controllers/product');
 router.post('/main', adminController_prod.postAddProduct);
 router.get('/main', adminController_prod.getProducts);
+router.get('/main/edit-product/:productId', adminController_prod.getEditProduct)
+router.post('/main/edit-product', adminController_prod.postEditProduct);
 
 const adminController_work = require('../controllers/work');
 router.get('/work', adminController_work.getWorks);

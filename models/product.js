@@ -1,24 +1,36 @@
 const getDb = require('../util/database').getDb;
+const mongodb = require('mongodb');
 
 class Product {
-    constructor(provider, idNumber, specification, quantity, price, texture) {
+    constructor(provider, idNumber, specification, quantity, price, texture, id, userId) {
         this.provider = provider;
         this.idNumber = idNumber;
         this.specification = specification;
         this.quantity = quantity;
         this.price = price;
         this.texture = texture;
+        this._id = id ? new mongodb.ObjectId(id) : null;    // 待研究 (下方save在更改資料時用)
+        this.userId = userId;                               // 待研究
     }
 
     save() {
         const db = getDb();      //getDb就直接連接到資料庫
-        return db
-            .collection('products')     //集合
-            .insertOne(this)            //也可以insertMany([{} {}])  //this就是上方資訊
+        let db_tem;
+        if (this._id) {
+            db_tem = db
+                .collection('products')
+                .updateOne({ _id: this._id }, { $set: this });
+        } else {
+            db_tem = db
+                .collection('products')     //集合
+                .insertOne(this);           //也可以insertMany([{} {}]) 
+        }
+        return db_tem
             .then(result => {
                 console.log(result);
             })
             .catch(err => {
+                console.log('Add Product');
                 console.log(err);
             });
     }
@@ -53,11 +65,11 @@ class Product {
             });
     }
 
-    static deleteById(prodId) {
+    static deleteById(idNumber) {
         const db = getDb();
         return db
             .collection('products')
-            .deleteOne({ _id: new mongodb.ObjectId(prodId) })
+            .deleteOne({ _id: new mongodb.ObjectId(idNumber) })
             .then(result => {
                 console.log('Deleted');
             })

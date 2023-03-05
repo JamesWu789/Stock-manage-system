@@ -63,7 +63,9 @@
                     <% for (let num = 0; num < prods.length; num++){ %>
                         <tr>
                             <td>
-                                <input type="checkbox" id="foo<%=num%>" />
+                                <a href="/main/edit-product/<%= prods[num]._id %>">
+                                    <img src="/public/edit.png" alt="修改" id="<%=num%>">
+                                </a>
                             </td>
                             <td>
                                 <%= prods[num]["provider"] %>
