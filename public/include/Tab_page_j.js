@@ -29,7 +29,7 @@ $(function () {
 
 
     // 按刪除後的confirm功能
-    $("#delete-icon").click(function () {
+    $("#delete-icon, #delete-account-icon").click(function () {
         return confirm1 = confirm('確定要刪除嗎!!');
     });
 

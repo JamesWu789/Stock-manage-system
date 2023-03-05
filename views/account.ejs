@@ -4,26 +4,34 @@
     <%- include('./include/anchor.ejs') %>
 
 
-        <!-- 庫存 -->
+        <!-- 帳號 -->
         <% for (let account of accou) { %>
-            <article class="card product-item">
-                <header class="card__header">
-                    <h1 class="product__title">
+            <article>
+                <header>
+                    <h1>
                         <%= account.workerName %>
                     </h1>
                 </header>
-                <div class="card__image">
-                    <img src="/pic/<%= account.workerName %>.jpg" alt="<%= account.workerName %>">
+                <div>
+                    <img src="/pic/<%=account.workerName %>.jpg" alt="<%= account.workerName %>">
                 </div>
-                <div class="card__content">
-                    <h2 class="product__price">$
+                <div>
+                    <h2>
                         <%= account.workItem %>
                     </h2>
-                    <p class="product__description">
+                    <p>
                         <%= account.phoneNum %>
                     </p>
                 </div>
-
+                <!-- 修改圖示 -->
+                <a href="/account/edit-account/<%= account._id %>" id="edit-icon">
+                    <img src="/public/edit.png" alt="修改">
+                </a>
+                <!-- 刪除圖示 -->
+                <!-- 不同頁面同一個jQuery功能要不同 id 命名 -->
+                <a href="/account/delete-account/<%= account._id %>" id="delete-account-icon">
+                    <img src="/public/trash.png" alt="刪除">
+                </a>
             </article>
             <% } %>
                 </body>
