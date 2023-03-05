@@ -8,7 +8,7 @@
     <%- include('./include/anchor.ejs') %>
 
 
-        <!-- 庫存 -->
+        <!-- 工作紀錄 -->
         <div>
             <a href='#' id="plus-icon">
                 <img src="/plus.png" alt="新增">
@@ -44,9 +44,6 @@
             </form>
             <div class="overlay hidden"></div>
 
-            <a href='##' id="garbage-icon">
-                <img src="/trash.png" alt="刪除">
-            </a>
             <table class="scroll" id="myTable">
                 <thead>
                     <tr>
@@ -63,7 +60,13 @@
                     <% for (let num = 0; num < works.length; num++){ %>
                         <tr>
                             <td>
-                                <input type="checkbox" id="foo<%=num%>" />
+                                <!-- 更改圖示 -->
+                                <a href="/work/edit-work/<%= works[num]._id %>" id="edit-icon">
+                                    <img src="/public/edit.png" alt="修改" id="<%=num%>">
+                                </a>
+                                <!-- 刪除圖示 -->
+                                <a href="/work/delete-work/<%= works[num]._id %>" id="delete-work-icon">
+                                    <img src="/public/trash.png" alt="刪除" id="<%=num%>">
                             </td>
                             <td>
                                 <%= works[num]["worker"] %>

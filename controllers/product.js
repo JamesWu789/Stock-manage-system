@@ -34,14 +34,12 @@ exports.getProducts = (req, res, next) => {
             res.render('Tab_page', {
                 prods: products
             });
-            // console.log("products:", products);
-        })
-        .catch(err => console.log(err));
+        }).catch(err => console.log(err));
 };
 
 exports.getEditProduct = (req, res, next) => {
     const prodID = req.params.productId;    // 就是網址後方的 /:內容
-    Product.findById(prodID)            // mongodb取的ID  (Tab_page.ejs的prods._id)
+    Product.findById(prodID)            // mongodb取的ID  (Tab_page.ejs的prods._id)  //呼叫Product.findById功能
         .then(product => {
             res.render('edit-product', {
                 prods: product
