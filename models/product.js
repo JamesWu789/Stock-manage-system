@@ -30,7 +30,6 @@ class Product {
                 console.log(result);
             })
             .catch(err => {
-                console.log('Add Product');
                 console.log(err);
             });
     }
@@ -65,11 +64,11 @@ class Product {
             });
     }
 
-    static deleteById(idNumber) {
+    static deleteById(prodId) {
         const db = getDb();
         return db
             .collection('products')
-            .deleteOne({ _id: new mongodb.ObjectId(idNumber) })
+            .deleteOne({ _id: new mongodb.ObjectId(prodId) })
             .then(result => {
                 console.log('Deleted');
             })

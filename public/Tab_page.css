@@ -26,6 +26,11 @@ a{
   width: 8rem;
 }
 
+#edit-icon, #delete-icon{
+  block-size: 20px;
+  width: 20px;
+}
+
 .logout{
   position: fixed;
   top: 5%;
