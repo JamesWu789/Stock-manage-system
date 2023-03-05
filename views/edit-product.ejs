@@ -7,7 +7,6 @@
     <body>
         <main>
             <form class="edit-form" action="/main/edit-product" method="POST">
-                <button class="close-modal">取消</button>
                 <h1>新增資料</h1>
                 <label>供應商
                     <input type="text" name="provider" value="<%= prods['provider'] %>">
@@ -35,6 +34,7 @@
                 <br>
                 <input type="hidden" value="<%= prods._id %>" name="productId">
                 <button type="submit" class="edit-data">修改</button>
+                <button class="close-modal">取消</button>
             </form>
         </main>
     </body>

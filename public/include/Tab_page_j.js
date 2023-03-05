@@ -28,6 +28,11 @@ $(function () {
     });
 
 
+    // 按刪除後的confirm功能
+    $("#delete-icon").click(function () {
+        return confirm1 = confirm('確定要刪除嗎!!');
+    });
+
     // 按鉛筆號跳出視窗
     // $("#edit-icon").click(function () {
     //     $(".edit-form, .overlay").removeClass("hidden");
