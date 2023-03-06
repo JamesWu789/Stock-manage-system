@@ -8,10 +8,11 @@ router.get('/', (req, res, next) => {
     res.render('entrance');
 });
 
-router.post('/', (req, res, next) => {
-    console.log('ent:post');
-    res.redirect('/main');
-});
+
+//登入判定
+const adminController_account = require('../controllers/account');
+router.post('/', adminController_account.checkLogin);
+
 
 router.get('/register', (req, res, next) => {
     console.log('reg:get');

@@ -34,11 +34,11 @@ class Account {
             });
     }
 
-    findByAccount() {
-        const db = getDb();
+    static findByAccount(account) {         // class底下static才是一個function  => Account.findByAccount
+        const db = getDb();                 // 相比之下上方的save沒有static，只能先construct a=Account(....) 再 a.save()
         return db
             .collection('account')
-            .find({ "account": this.account })
+            .find({ "account": account })
             .toArray()
             .then(result => {
                 return result

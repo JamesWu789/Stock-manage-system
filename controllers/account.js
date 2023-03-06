@@ -17,8 +17,8 @@ exports.postAddAccount = (req, res, next) => {
         editable,
         null);
 
-    accou
-        .findByAccount()
+    Account
+        .findByAccount(account)
         .then(result => {
             if (result.length == 0) {
                 console.log("沒找到，存");
@@ -26,6 +26,7 @@ exports.postAddAccount = (req, res, next) => {
                 res.redirect('/');          //註冊完帳號回到登入頁面
             } else {
                 console.log("有找到，不存");
+                console.log('result:', result);
                 res.render('register', { alertSign: 'fire' });
             }
         }).catch(err => {
@@ -90,6 +91,21 @@ exports.getDeleteAccount = (req, res, next) => {
             console.log('Delete Account');
             res.redirect('/account');
         }).catch(err => console.log(err));
+
 };
 
-
+exports.checkLogin = (req, res, next) => {
+    const account = req.body.account;
+    const password = req.body.password;
+    Account
+        .findByAccount(account)
+        .then(result => {
+            if (result.length == 0 || result[0]['password'] !== password) {
+                res.redirect('/');          //帳密錯誤回登入頁面
+            } else {
+                res.redirect('/main');        //可登入
+            }
+        }).catch(err => {
+            console.log(err);
+        });
+};
