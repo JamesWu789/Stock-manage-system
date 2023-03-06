@@ -2,12 +2,13 @@ const getDb = require('../util/database').getDb;
 const mongodb = require('mongodb');
 
 class Account {
-    constructor(workerName, phoneNum, workItem, account, password, id, userId) {
+    constructor(workerName, phoneNum, workItem, account, password, editable, id, userId) {
         this.workerName = workerName;
         this.phoneNum = phoneNum;
         this.workItem = workItem;
         this.account = account;
         this.password = password;
+        this.editable = editable;
         this._id = id ? new mongodb.ObjectId(id) : null;    // 待研究 (下方save在更改資料時用)
         this.userId = userId;                               // 待研究
     }
@@ -21,7 +22,7 @@ class Account {
                 .updateOne({ _id: this._id }, { $set: this });
         } else {
             db_tem = db
-                .collection('account')     //集合
+                .collection('account')      //集合
                 .insertOne(this);           //也可以insertMany([{} {}]) 
         }
         return db_tem

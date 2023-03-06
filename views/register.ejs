@@ -12,13 +12,12 @@
 </head>
 
 <body>
-
     <main>
         <div>
             <form method="POST" action="/register">
                 <div>
                     <label>姓名
-                        <input type="text" name='workerName' id='workerName' value='JamesWu'>
+                        <input type="text" name='workerName' id='workerName'>
                     </label>
                 </div>
                 <div>
@@ -45,6 +44,7 @@
                     <label>再次輸入密碼
                         <input type="text" placeholder="再次輸入密碼" name='password_2' id='password_2'>
                     </label>
+                    <input type="checkbox" class="hidden" name='editable'>
                     <button type="submit" id="btn-register">註冊</button>
                 </div>
                 <button>

@@ -7,12 +7,14 @@ exports.postAddAccount = (req, res, next) => {
     const workItem = req.body.workItem;
     const account = req.body.account;
     const password = req.body.password;
+    const editable = req.body.editable;   //checkbox結果為 on 跟 undefined
     const accou = new Account(              //construct了，所以後面呼叫變accou
         workerName,
         phoneNum,
         workItem,
         account,
         password,
+        editable,
         null);
 
     accou
@@ -23,7 +25,7 @@ exports.postAddAccount = (req, res, next) => {
                 accou.save();               //findByAccount結果要用promise.then來接資料，不然在外面都是Promise{<pending>}
                 res.redirect('/');          //註冊完帳號回到登入頁面
             } else {
-                console.log("有找到不存");
+                console.log("有找到，不存");
                 res.render('register', { alertSign: 'fire' });
             }
         }).catch(err => {
@@ -60,6 +62,7 @@ exports.postEditAccount = (req, res, next) => {
     const workItemUpdate = req.body.workItem;
     const accountUpdate = req.body.account;
     const passwordUpdate = req.body.password;
+    const editableUpdate = req.body.editable;
     const accountID = req.body.accountId;
 
     const account = new Account(
@@ -68,6 +71,7 @@ exports.postEditAccount = (req, res, next) => {
         workItemUpdate,
         accountUpdate,
         passwordUpdate,
+        editableUpdate,
         accountID
     );
     account
