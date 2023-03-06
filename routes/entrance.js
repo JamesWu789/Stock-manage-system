@@ -13,4 +13,10 @@ router.post('/', (req, res, next) => {
     res.redirect('/main');
 });
 
+router.get('/register', (req, res, next) => {
+    console.log('reg:get');
+    res.render('register', { alertSign: ' ' });
+});
+
+
 module.exports = router;

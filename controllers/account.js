@@ -1,34 +1,39 @@
 const Account = require('../models/account');
 
 exports.postAddAccount = (req, res, next) => {
-    console.log("main:post");
+    console.log("register:post");
     const workerName = req.body.workerName;
     const phoneNum = req.body.phoneNum;
     const workItem = req.body.workItem;
     const account = req.body.account;
     const password = req.body.password;
-    const accou = new Account(
+    const accou = new Account(              //construct了，所以後面呼叫變accou
         workerName,
         phoneNum,
         workItem,
         account,
         password,
         null);
+
     accou
-        .save()
-        .then(() => {
-            console.log('Created Account');
-            console.log(req.body);
-            res.redirect('/');      //註冊完帳號回到登入頁面
-        })
-        .catch(err => {
+        .findByAccount()
+        .then(result => {
+            if (result.length == 0) {
+                console.log("沒找到，存");
+                accou.save();               //findByAccount結果要用promise.then來接資料，不然在外面都是Promise{<pending>}
+                res.redirect('/');          //註冊完帳號回到登入頁面
+            } else {
+                console.log("有找到不存");
+                res.render('register', { alertSign: 'fire' });
+            }
+        }).catch(err => {
             console.log(err);
         });
 };
 
 exports.getAccounts = (req, res, next) => {
     console.log("main:get");
-    Account.fetchAll()
+    Account.fetchAll()                  // 有static，不能accou.fetchAll
         .then(account => {
             res.render('account', {
                 accou: account

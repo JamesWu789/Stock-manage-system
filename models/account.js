@@ -33,6 +33,18 @@ class Account {
             });
     }
 
+    findByAccount() {
+        const db = getDb();
+        return db
+            .collection('account')
+            .find({ "account": this.account })
+            .toArray()
+            .then(result => {
+                return result
+            })
+            .catch(err => { console.log(err) });
+    }
+
     static fetchAll() {
         const db = getDb();
         return db

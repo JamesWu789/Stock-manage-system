@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>註冊帳號</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="./include/register_j.js"></script>
     <link href='register.css' rel='stylesheet' />
 </head>
 
@@ -16,35 +18,39 @@
             <form method="POST" action="/register">
                 <div>
                     <label>姓名
-                        <input type="text" name='workerName' value='JamesWu'>
+                        <input type="text" name='workerName' id='workerName' value='JamesWu'>
                     </label>
                 </div>
                 <div>
                     <label>電話
-                        <input type="number" name='phoneNum'>
+                        <input type="number" name='phoneNum' id='phoneNum'>
                     </label>
                 </div>
                 <div>
                     <label>工作項目
-                        <input type="text" name='workItem'>
+                        <input type="text" name='workItem' id='workItem'>
                     </label>
                 </div>
                 <div>
                     <label>帳號
-                        <input type="text" name='account'>
+                        <input type="text" name='account' id='account'>
                     </label>
                 </div>
                 <div>
                     <label>密碼
-                        <input type="text" placeholder="輸入密碼" name='password'>
+                        <input type="text" placeholder="輸入密碼" name='password' id='password'>
                     </label>
                 </div>
                 <div>
                     <label>再次輸入密碼
-                        <input type="text" placeholder="再次輸入密碼" name='password_2'>
+                        <input type="text" placeholder="再次輸入密碼" name='password_2' id='password_2'>
                     </label>
-                    <button type="submit">註冊</button>
+                    <button type="submit" id="btn-register">註冊</button>
                 </div>
+                <button>
+                    <a href="/">取消</a>
+                </button>
+                <input type="hidden" class="here <%= alertSign %>">
             </form>
         </div>
     </main>
