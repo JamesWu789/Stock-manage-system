@@ -1,7 +1,7 @@
-<%- include('./include/head.ejs') %>
+<%- include('../include/head.ejs') %>
     <link rel="stylesheet" href="/Tab_page.css">
 
-    <%- include('./include/anchor.ejs') %>
+    <%- include('../include/user_anchor.ejs') %>
 
 
         <!-- 帳號 -->
@@ -24,12 +24,11 @@
                     </p>
                 </div>
                 <!-- 修改圖示 -->
-                <a href="/account/edit-account/<%= account._id %>" id="edit-icon">
+                <a>
                     <img src="/public/edit.png" alt="修改">
                 </a>
                 <!-- 刪除圖示 -->
-                <!-- 不同頁面同一個jQuery功能要不同 id 命名 -->
-                <a href="/account/delete-account/<%= account._id %>" id="delete-account-icon">
+                <a>
                     <img src="/public/trash.png" alt="刪除">
                 </a>
             </article>

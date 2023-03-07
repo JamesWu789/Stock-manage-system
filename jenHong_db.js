@@ -15,12 +15,14 @@ app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'public')));
 
 //引用內部(js操作)
-const entrance = require('./routes/entrance');
-const main = require('./routes/Tab_page');
+const entrance_Routes = require('./routes/entrance');
+const admin_Routes = require('./routes/admin');
+const user_Routes = require('./routes/user');
 
 console.log('ent:ger');
-app.use(entrance);
-app.use(main);
+app.use(entrance_Routes);
+app.use('/admin',admin_Routes);
+app.use(user_Routes);
 
 
 //連接到database

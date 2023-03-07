@@ -28,20 +28,28 @@ exports.postAddWork = (req, res, next) => {
 };
 
 exports.getWorks = (req, res, next) => {
-    console.log("main:get");
+    console.log("product:get");
+    const edit = req.query.edit;
     Work.fetchAll()
-        .then(works => {
-            res.render('work', {
+    .then(works => {
+        if (edit === 'true') {
+            res.render('admin/work', {
                 works: works
-            });
-        }).catch(err => console.log(err));
+            })
+        } else {
+            res.render('user/work_list', {
+                works: works
+            })
+        }
+    }).catch(err => console.log(err));
 };
+
 
 exports.getEditWork = (req, res, next) => {
     const workID = req.params.workId;    // 就是網址後方的 /:內容
     Work.findById(workID)            // mongodb取的ID  (work.ejs的works._id)
         .then(work => {
-            res.render('edit-work', {
+            res.render('admin/edit-work', {
                 works: work
             });
         })
@@ -50,7 +58,7 @@ exports.getEditWork = (req, res, next) => {
 
 
 exports.postEditWork = (req, res, next) => {
-    console.log("main:post:edit");
+    console.log("product:post:edit");
     const workerUpdate = req.body.worker;
     const workItemUpdate = req.body.workItem;
     const specificationUpdate = req.body.specification;
@@ -72,7 +80,7 @@ exports.postEditWork = (req, res, next) => {
         .save()
         .then(result => {
             console.log('Update Work');
-            res.redirect('/work');
+            res.redirect('/admin/work?edit=true');      // 前面需要加 '/'開頭代表絕對路徑
         })
         .catch(err => console.log(err));
 };
@@ -82,6 +90,6 @@ exports.getDeleteWork = (req, res, next) => {
     Work.deleteById(workID)
         .then(() => {
             console.log('Delete Work');
-            res.redirect('/work');
+            res.redirect('/admin/work?edit=true');
         }).catch(err => console.log(err));
 };

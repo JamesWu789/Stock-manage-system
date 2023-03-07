@@ -29,11 +29,18 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
     console.log("main:get");
+    const edit = req.query.edit;
     Product.fetchAll()
         .then(products => {
-            res.render('Tab_page', {
-                prods: products
-            });
+            if (edit === 'true') {
+                res.render('admin/product', {
+                    prods: products
+                })
+            } else {
+                res.render('user/product_list', {
+                    prods: products
+                })
+            }
         }).catch(err => console.log(err));
 };
 
@@ -41,7 +48,7 @@ exports.getEditProduct = (req, res, next) => {
     const prodID = req.params.productId;    // 就是網址後方的 /:內容
     Product.findById(prodID)            // mongodb取的ID  (Tab_page.ejs的prods._id)  //呼叫Product.findById功能
         .then(product => {
-            res.render('edit-product', {
+            res.render('admin/edit-product', {
                 prods: product
             });
         })
@@ -72,7 +79,7 @@ exports.postEditProduct = (req, res, next) => {
         .save()
         .then(result => {
             console.log('Update Product');
-            res.redirect('/main');
+            res.redirect('/admin/product?edit=true');
         })
         .catch(err => console.log(err));
 };
@@ -82,6 +89,6 @@ exports.getDeleteProduct = (req, res, next) => {
     Product.deleteById(prodID)
         .then(() => {
             console.log('Delete Product');
-            res.redirect('/main');
+            res.redirect('/admin/product?edit=true');
         }).catch(err => console.log(err));
 };

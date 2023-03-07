@@ -1,11 +1,11 @@
-<%- include('./include/head.ejs') %>
+<%- include('../include/head.ejs') %>
     <!--為了tab用 -->
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <!--為了tableSorter用 -->
     <script type="text/javascript" src="/include/jquery.tablesorter.js"></script>
     <link rel="stylesheet" href="/Tab_page.css">
 
-    <%- include('./include/anchor.ejs') %>
+    <%- include('../include/admin_anchor.ejs') %>
 
 
         <!-- 庫存 -->
@@ -13,7 +13,7 @@
             <a href='#' id="plus-icon">
                 <img src="/plus.png" alt="新增">
             </a>
-            <form class="modal hidden" action="/main" method="POST">
+            <form class="modal hidden" action="/admin/product" method="POST">
                 <button class="close-modal">&times;</button>
                 <h1>新增資料</h1>
                 <label>供應商
@@ -61,11 +61,11 @@
                         <tr>
                             <td>
                                 <!-- 更改圖示 -->
-                                <a href="/main/edit-product/<%= prods[num]._id %>" id="edit-icon">
+                                <a href="/admin/product/edit-product/<%= prods[num]._id %>" id="edit-icon">
                                     <img src="/public/edit.png" alt="修改" id="<%=num%>">
                                 </a>
                                 <!-- 刪除圖示 -->
-                                <a href="/main/delete-product/<%= prods[num]._id %>" id="delete-icon">
+                                <a href="/admin/product/delete-product/<%= prods[num]._id %>" id="delete-icon">
                                     <img src="/public/trash.png" alt="刪除" id="<%=num%>">
                                 </a>
                             </td>

@@ -36,20 +36,27 @@ exports.postAddAccount = (req, res, next) => {
 
 exports.getAccounts = (req, res, next) => {
     console.log("main:get");
+    const edit = req.query.edit;
     Account.fetchAll()                  // 有static，不能accou.fetchAll
         .then(account => {
-            res.render('account', {
-                accou: account
-            });
-        })
-        .catch(err => console.log(err));
-};
+            if (edit === 'true') {
+                res.render('admin/account', {
+                    accou: account
+                })
+            } else {
+                res.render('user/account_list', {
+                    accou: account
+                })
+            }
+        }).catch(err => console.log(err));
+};    
+    
 
 exports.getEditAccount = (req, res, next) => {
     const accountID = req.params.accountId;    // 網址後方的 /:內容
     Account.findById(accountID)
         .then(account => {
-            res.render('edit-account', {
+            res.render('admin/edit-account', {
                 account: account
             });
         })
@@ -79,7 +86,7 @@ exports.postEditAccount = (req, res, next) => {
         .save()
         .then(result => {
             console.log('Update Account');
-            res.redirect('/account');
+            res.redirect('/admin/account?edit=true');
         })
         .catch(err => console.log(err));
 };
@@ -89,7 +96,7 @@ exports.getDeleteAccount = (req, res, next) => {
     Account.deleteById(accountID)
         .then(() => {
             console.log('Delete Account');
-            res.redirect('/account');
+            res.redirect('/admin/account?edit=true');
         }).catch(err => console.log(err));
 
 };
@@ -102,8 +109,10 @@ exports.checkLogin = (req, res, next) => {
         .then(result => {
             if (result.length == 0 || result[0]['password'] !== password) {
                 res.redirect('/');          //帳密錯誤回登入頁面
+            } else if (result[0]['editable'] === 'on'){
+                res.redirect('/admin/product?edit=true');        //可登入 可編輯
             } else {
-                res.redirect('/main');        //可登入
+                res.redirect('/product?edit=false');              //可登入 不可編輯 (?後面是 字串)
             }
         }).catch(err => {
             console.log(err);

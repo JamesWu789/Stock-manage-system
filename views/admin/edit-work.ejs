@@ -1,4 +1,4 @@
-<%- include('./include/head.ejs') %>
+<%- include('../include/head.ejs') %>
 
     <link rel="stylesheet" href="/Tab_page.css">
 
@@ -6,7 +6,7 @@
 
     <body>
         <main>
-            <form class="edit-form" action="/work/edit-work" method="POST">
+            <form class="edit-form" action="/admin/work/edit-work" method="POST">
                 <h1>修改資料</h1>
                 <label>師傅
                     <input type="text" name="worker" value="<%= works['worker'] %>">
