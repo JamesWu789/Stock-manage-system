@@ -10,31 +10,28 @@
 </head>
 
 <body>
-    <header>
-    </header>
     <main>
-        <p class='login'>
-            <label>登入</label>
-            <form action='/' method='POST'>
-                <label>帳號
-                    <input type='text' name="account">
-                </label>
+        <img src="/logo.gif" alt="logo" height='370' id="logo">
+        <br>
+        <header>歡迎登入資料後台</header>
+        <br>
+        <form action='/' method='POST'>
+            <section>
                 <div>
-                    <label>密碼
-                        <input type='password' name="password">
-                    </label>
-                    <button type='submit'>登入</button>
+                    <img src="/avatar.png" alt="User" name='icon' width="40">
+                    <input type='text' placeholder="請輸入帳號" name="account">
                 </div>
-            </form>
-            <nav>
-                <li>
-                    <a href="/">忘記密碼</a>
-                </li>
-                <li>
-                    <a href="/register">註冊帳號</a>
-                </li>
-            </nav>
-        </p>
+                <br>
+                <div>
+                    <img src="/lock.png" alt="Lock" name='icon' width="40">
+                    <input type='password' placeholder="請輸入密碼" name="password">
+                </div>
+            </section>
+            <button type='submit' id="login">登入</button>
+        </form>
+        <a href="/" id="a_forget">忘記密碼</a>
+        <br>
+        <a name='btn-register' href="/register" id='a_regist'>( 註冊帳號請點此 )</a>
     </main>
 </body>
 
