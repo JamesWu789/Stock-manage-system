@@ -1,61 +1,7 @@
-
-* {								/* 全局設定 */
-	margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  background-color: rgb(189, 84, 14);
-
-}
-
-/* .active{
-  font-size: 20px;  
-  background-color: rgb(44, 34, 66);
-  color: rgb(49, 209, 81);
-} */
-
-a{
-  position: relative;
-  block-size: 50px;       /* 上方框高度 */
-  color:rgb(8, 6, 6);
-  display:inline-block;
-  text-decoration: none;
-  margin:20px auto;
-  align-items: center;
-  background-color: rgb(238, 179, 140);
-  height: 3rem;
-  width: 8rem;
-}
-
 #edit-icon, #delete-icon, #delete-account-icon, #delete-work-icon {
   block-size: 20px;
   width: 20px;
 }
-
-.logout{
-  position: fixed;
-  top: 5%;
-  right: 55%;
-}
-
-ul li{
-  margin-left: 1em;
-  list-style-type: none;
-  align-items: center;
-}
-
-
-.tab-content {        /* 底下外框設定 */
-  display:flex;
-  flex-direction:column;
-  margin:20px auto;
-  max-width: 80%; /*460px; */
-  height:  80%; /*580px;*/
-  background-color: rgb(189, 84, 14);
-  /* margin-bottom:20px;
-  padding:30px 40px; */
-  /* position:relative; */
-}
-
 
 .form-group{
   color:#fff;
@@ -81,58 +27,13 @@ label .form-group{
   
 }
 
-.btn-group{         
-  width: 100%;
-  margin-bottom: 30px;
-  position: relative;
-  display: flex;          /* 上方文字能左右排列 */
-  justify-content: center;   /* 上方文字能左右平均*/
-  line-height: 40px;   /* 上框高度 */   
-  padding: 0;
-  font-size: 20px;
-  background-color: rgb(189, 84, 14);
-  border-radius: 0;
-  color: #EAF0ED;
-  text-align:center;
-  font-weight: bold;
-  border: 1px solid #EAF0ED;
-}
-
-::placeholder {
-  color: #ffffff;
-  }
-
-input {
-  border:1px solid #ffffff;;
-  border-radius: 3px;
-  padding: 0 8px; 
-}
-
 .form-control{
   border:1px solid #EAF0ED;
 }
-
-#plus-icon{
-  width: 10%;
-  margin: 50px;
-  display: flex;
-  position: absolute;
-  top: 95%;
-  right: 40%;
-  z-index:1;
-}
-#garbage-icon{
-  width: 10%;
-  position: absolute;
-  top: 85%;
-  right: 20%;
-  z-index:1;
-}
-
-
 .hidden {
   display: none;
 }
+
 
 .modal {
   position:  absolute;
@@ -159,69 +60,184 @@ input {
   z-index: 3;
 }
 
-table.scroll {
-  width: 100%; 
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 2px solid rgb(255, 255, 255);
+body{
+  height:100%;
+  background-color: rgb(61, 60, 60);
+  margin:0;
 }
-table.scroll tbody, table.scroll thead { display: block; }
-thead tr th { 
-  color: rgb(255, 255, 255);
-  height: 30px;
-  line-height: 30px;
+a{
+  color: black;
+  text-decoration: none;
+}
+header{
+  /* 控制block內上下置中*/
+  display: flex;  
+  flex-wrap: wrap;          
+  align-items: center;
+  /* padding: 2pt; */
+  background:  rgb(250,189,0);  
+}
+header * {
+  color: white;
+  display: inline-block;
+  /* overflow: hidden;
+  padding-top: 10px;
+  vertical-align: auto; */
+}  
+main{
+  display: inline-block;
+  width: 100%;
+  background-color: rgb(61, 60, 60);
+}
+
+#logo_small{
+  padding: 0 12pt;
+}
+#logout{
+  font-size: 13pt;
+  font-weight: 700;
+  color: white;
+  padding: 7pt 13pt;
+  border-radius: 10px;
+  background-color:  rgb(114, 135, 198);
+}
+#logo_user{
+  padding-left: calc(100% - 440pt);
+  padding-right: 1%;
+}
+
+#tabs{
+  display: inline-block;
+  height:100%;
+  float: left;
+  padding-top: 40pt;
+  padding-bottom: 254pt;
+}
+#plus-icon{
+  border-radius: 10px;
+  background-color: rgb(114, 135, 198);
+  color: white;
+  display: block;
+  padding-left : 4pt;
+  padding-bottom: 8pt;
+  padding-top:8pt;
+  width:100px;
+  margin-top: 10pt;
+  margin-bottom: 8pt;
+}
+div, table{
+  display:  block;
+  /* float: left; */
+}
+div>p{
+  display: flex;
+  /* background-color: gray; */
+  /* list-style-type: none; */
+  font-size: 12pt;
+  padding-left: 20pt;
+  padding-right: 20pt;
+  height: 45pt;
+  /* justify-content: center; */
+  align-items: center;
+}
+div>p:hover {
+  background-color:  gray;
+}
+img + p{
+  padding-right: 10pt; 
+}
+p > img{
+  padding-right: 5pt;
+}
+.btn{
+  font-size: 12pt;
+  color: white;
+}
+
+::placeholder {
+  color: #ffffff;
+  }
+
+.hidden {
+  display: none;
+}
+#show_table{
+  padding: 0 30pt;
+  background-color: gray;
+  margin-left: 120pt;
+  padding-bottom: 36pt;
+  padding-top: 2pt;
+}
+
+.scroll {
+  /* width: 100%;  */
+  border-collapse: collapse;
+  border-spacing: 00;
+  /* border: 2px solid rgb(255, 255, 255); */
+}
+tbody, thead { display: block; }
+/* 標題 */
+th { 
+  height: 40px;
+  line-height: 40px;
+  text-indent: 12pt;
+  background-color: rgb(81, 81, 81);
+  color: white;
   /* text-align: left; */
 }
-table.scroll tbody{
-  height: 400px;
-  overflow-y: auto;   
-  overflow-x: auto;
-  z-index: 2;
+
+tbody{
+  height: 350pt;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  /* 表格加上右邊srcoll bar*/
+  width: calc(100% + 13pt);
+  overflow-y: scroll;   
+  overflow-x: scroll;
+  border-top: 2px solid rgb(255, 255, 255); 
+  line-height: 50px;
+  text-align: center;
 }
-tbody { border-top: 2px solid rgb(255, 255, 255); }
-tbody td, thead th {
-  color: rgb(255, 255, 255);
+td, th {
   /* width: 20%; */ /* Optional */
-  border-right: 1px solid rgb(255, 255, 255);
+  /* border-right: 1px solid rgb(255, 255, 255); */
   /* white-space: nowrap; */
-  z-index: 2;
 }
-tbody td:last-child, thead th:last-child {
+tr td:last-child a{
+  font-size: 3ft;
+}
+
+/* tbody td:last-child, thead th:last-child {
   border-right: none;
-}
-table {
+} */
+table{
   table-layout: fixed;
-  width: 100%;
+  /* width: 100%; */
+  /* border-collapse:separate; */
 }
-tbody td, thead th {
-  width: 19%;  
+td, th {
+  width: 150pt;  
 }
 td{
-  border-bottom:rgb(255, 255, 255) 1px solid;
+  /* border-bottom:rgb(255, 255, 255) 1px solid; */
 }
 
-
-/* 使用EJS無用處 */
-tr:nth-child(even) {            
-background-color: #ebdfc9;
-}
-
+/* 表格上欄 上下箭頭*/
 .tablesorter-default .header,.tablesorter-default .tablesorter-header{
 background-image:url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
 background-position:center right;
 background-repeat:no-repeat;
 cursor:pointer;
 white-space:normal;
-padding:4px 20px 4px 4px}
-
-
-
-.tablesorter-default td{
-  padding:4px;
+padding:4px 20px 4px 4px;
 }
 
+.tablesorter-default td{
+  /* padding:4px; */
+}
+
+/* hover變色 */
 .tablesorter-default tbody>tr.even:hover>td,.tablesorter-default tbody>tr.hover>td,.tablesorter-default tbody>tr.odd:hover>td,.tablesorter-default tbody>tr:hover>td{
   background-color:rgb(243, 123, 43);
-  color:#000
 }
   

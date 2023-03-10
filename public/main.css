@@ -52,10 +52,16 @@ main{
   padding-bottom: 254pt;
 }
 #plus-icon{
+  border-radius: 10px;
+  background-color: rgb(114, 135, 198);
   color: white;
   display: block;
-  padding-bottom: 10pt;
-  padding-top:12pt;
+  padding-left : 4pt;
+  padding-bottom: 8pt;
+  padding-top:8pt;
+  width:100px;
+  margin-top: 10pt;
+  margin-bottom: 8pt;
 }
 div, table{
   display:  block;
@@ -97,7 +103,8 @@ p > img{
   padding: 0 30pt;
   background-color: gray;
   margin-left: 120pt;
-  padding-bottom: 32pt;
+  padding-bottom: 36pt;
+  padding-top: 2pt;
 }
 
 .scroll {

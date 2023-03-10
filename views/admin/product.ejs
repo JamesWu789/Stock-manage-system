@@ -7,11 +7,11 @@
 
     <%- include('../include/admin_anchor.ejs') %>
 
-
         <!-- 庫存 -->
-        <div>
+        <div id="show_table">
             <a href='#' id="plus-icon">
-                <img src="/plus.png" alt="新增">
+                <img src="/add.png" alt="新增" height="20">
+                新增資料
             </a>
             <form class="modal hidden" action="/admin/product" method="POST">
                 <button class="close-modal">&times;</button>
@@ -47,28 +47,18 @@
             <table class="scroll" id="myTable">
                 <thead>
                     <tr>
-                        <th></th>
                         <th>供應商</th>
                         <th>編號</th>
                         <th>尺寸 (呎)</th>
                         <th>數量 (碼)</th>
                         <th>價格</th>
                         <th>材質</th>
+                        <th>編輯</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% for (let num = 0; num < prods.length; num++){ %>
                         <tr>
-                            <td>
-                                <!-- 更改圖示 -->
-                                <a href="/admin/product/edit-product/<%= prods[num]._id %>" id="edit-icon">
-                                    <img src="/public/edit.png" alt="修改" id="<%=num%>">
-                                </a>
-                                <!-- 刪除圖示 -->
-                                <a href="/admin/product/delete-product/<%= prods[num]._id %>" id="delete-icon">
-                                    <img src="/public/trash.png" alt="刪除" id="<%=num%>">
-                                </a>
-                            </td>
                             <td>
                                 <%= prods[num]["provider"] %>
                             </td>
@@ -87,9 +77,22 @@
                             <td>
                                 <%= prods[num]["texture"] %>
                             </td>
+                            <td>
+                                <!-- 更改圖示 -->
+                                <a href="/admin/product/edit-product/<%= prods[num]._id %>" id="edit-icon">
+                                    <img src="/revision.png" alt="修改" id="<%=num%>" height="20">
+                                    修改
+                                </a>
+                                <!-- 刪除圖示 -->
+                                <a href="/admin/product/delete-product/<%= prods[num]._id %>" id="delete-icon">
+                                    <img src="/garbage.png" alt="刪除" id="<%=num%>" height="20">
+                                    刪除
+                                </a>
+                            </td>
                         </tr>
                         <% } %>
                 </tbody>
             </table>
         </div>
-        </body>
+    </main>        
+</body>
