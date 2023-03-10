@@ -84,7 +84,7 @@ input{
     outline: none;
     font-size: 12pt;
     border: none;
-    text-indent: 22pt;
+    text-indent: 22pt;      /* 文字開頭空格*/ 
 }
 
 input::placeholder {
