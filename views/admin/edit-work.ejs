@@ -1,6 +1,6 @@
 <%- include('../include/head.ejs') %>
 
-    <link rel="stylesheet" href="/Tab_page.css">
+    <link rel="stylesheet" href="/css/Tab_page.css">
 
     </head>
 
@@ -34,7 +34,7 @@
                 <br>
                 <input type="hidden" value="<%= works._id %>" name="workId">
                 <button type="submit" class="edit-data">修改</button>
-                <button class="close-modal">取消</button>
+                <a class="cancel" href="/work?edit=true">取消</a>
             </form>
         </main>
     </body>

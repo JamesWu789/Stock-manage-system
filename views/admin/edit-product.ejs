@@ -1,13 +1,13 @@
 <%- include('../include/head.ejs') %>
 
-    <link rel="stylesheet" href="/Tab_page.css">
+    <link rel="stylesheet" href="/css/Tab_page.css">
 
     </head>
 
     <body>
         <main>
             <form class="edit-form" action="/admin/product/edit-product" method="POST">
-                <h1>修改資料</h1>
+                <h2>修改資料</h2>
                 <label>供應商
                     <input type="text" name="provider" value="<%= prods['provider'] %>">
                 </label>
@@ -34,7 +34,7 @@
                 <br>
                 <input type="hidden" value="<%= prods._id %>" name="productId">
                 <button type="submit" class="edit-data">修改</button>
-                <button class="close-modal">取消</button>
+                <a class="cancel" href="/product?edit=true">取消</a>
             </form>
         </main>
     </body>

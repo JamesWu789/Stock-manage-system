@@ -16,7 +16,7 @@ $(function () {
         $(".modal, .overlay").removeClass("hidden");
     });
 
-    $(".close-modal").click(function () {       // 按esc關閉 
+    $(".close-modal, .cancel").click(function () {       // 按esc關閉 
         $(".overlay, .modal").addClass("hidden");
         $("form").submit(function () {                  // 按esc後避免回傳post
             return false;
@@ -27,6 +27,11 @@ $(function () {
         $(".overlay, .modal").addClass("hidden");
     });
 
+    $(".cancel").click(function () {       // 按取消關閉 
+        $("form").submit(function () {                  // 按esc後避免回傳post
+            return false;
+        });
+    });
 
     // 按刪除後的confirm功能
     $("#delete-icon, #delete-account-icon, #delete-work-icon").click(function () {

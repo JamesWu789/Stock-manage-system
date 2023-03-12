@@ -1,6 +1,6 @@
 <%- include('../include/head.ejs') %>
 
-    <link rel="stylesheet" href="/Tab_page.css">
+    <link rel="stylesheet" href="/css/Tab_page.css">
 
     </head>
 
@@ -16,7 +16,7 @@
                     <input type="number" name="phoneNum" value="<%= account['phoneNum'] %>">
                 </label>
                 <br>
-                <label>工作項目
+                <label>專業
                     <input type="text" name="workItem" value="<%= account['workItem'] %>">
                 </label>
                 <br>
@@ -36,7 +36,7 @@
                 <br>
                 <input type="hidden" value="<%= account._id %>" name="accountId">
                 <button type="submit" class="edit-data">修改</button>
-                <button class="close-modal">取消</button>
+                <a class="cancel" href="/account?edit=true">取消</a>
             </form>
         </main>
     </body>

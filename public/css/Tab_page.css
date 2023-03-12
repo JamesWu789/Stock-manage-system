@@ -34,20 +34,20 @@ label .form-group{
   display: none;
 }
 
-
-.modal {
+.modal, .edit-form {
   position:  absolute;
   font-size: 2rem;
   font-weight: 600;
-  padding: 1.75rem 3.5rem;
-  margin: 5rem 2rem;
+  padding: 1rem 2rem;
+  margin: 0rem 3rem;
   border: none;
   background-color: #fff;
   color: #444;
-  border-radius: 10rem;
-  cursor: pointer;
+  border-radius: 30pt;
+  /* cursor: pointer; */
   z-index: 4;
 }
+
 
 .overlay {
   position:  absolute;
@@ -74,6 +74,7 @@ header{
   display: flex;  
   flex-wrap: wrap;          
   align-items: center;
+  justify-content: center;
   /* padding: 2pt; */
   background:  rgb(250,189,0);  
 }
@@ -99,7 +100,7 @@ main{
   color: white;
   padding: 7pt 13pt;
   border-radius: 10px;
-  background-color:  rgb(114, 135, 198);
+  background-color:  rgb(84, 113, 199);
 }
 #logo_user{
   padding-left: calc(100% - 440pt);
@@ -115,15 +116,22 @@ main{
 }
 #plus-icon{
   border-radius: 10px;
-  background-color: rgb(114, 135, 198);
+  background-color: rgb(84, 113, 199);
   color: white;
   display: block;
   padding-left : 4pt;
   padding-bottom: 8pt;
   padding-top:8pt;
-  width:100px;
+  width:105px;
   margin-top: 10pt;
   margin-bottom: 8pt;
+  box-shadow: 1.5px 1.5px 1.5px rgb(68, 67, 67);
+  letter-spacing: 0.5pt;
+  font-size: 12.5pt;
+  /* font-weight: 600; */
+}
+#plus-icon:hover, #logout:hover, .edit-data:hover, .cancel:hover{
+  background-color: rgb(99, 124, 201);
 }
 div, table{
   display:  block;
@@ -165,10 +173,33 @@ p > img{
   padding: 0 30pt;
   background-color: gray;
   margin-left: 120pt;
-  padding-bottom: 36pt;
+  padding-bottom: 35pt;
   padding-top: 2pt;
 }
-
+.Add-data, .edit-data, .cancel{
+  font-size: 15pt;
+  padding: 6pt;
+  border: none;
+  color: white;
+  background-color: rgb(84, 113, 199);
+  border-radius: 8pt;
+  margin-top: 23pt;
+  margin-left: 197pt;
+}
+.cancel{
+  margin-left: 0;
+  font-weight: 200;
+  padding-top:9pt; 
+}
+h3{
+  display: inline-block;
+  padding-inline-start: 70pt;
+  margin: 7pt auto 15pt auto;
+}
+.close-modal{
+  margin-left: 50pt;
+  vertical-align: top;
+}
 .scroll {
   /* width: 100%;  */
   border-collapse: collapse;
