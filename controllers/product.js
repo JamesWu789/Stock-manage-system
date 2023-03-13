@@ -20,7 +20,7 @@ exports.postAddProduct = (req, res, next) => {
         .save()
         .then(() => {
             console.log('Created Product');
-            console.log(req.body);
+            // console.log(req.body);
         })
         .catch(err => {
             console.log(err);

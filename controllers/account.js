@@ -8,6 +8,7 @@ exports.postAddAccount = (req, res, next) => {
     const account = req.body.account;
     const password = req.body.password;
     const editable = req.body.editable;   //checkbox結果為 on 跟 undefined
+    const readable = req.body.readable;
     const accou = new Account(              //construct了，所以後面呼叫變accou
         workerName,
         phoneNum,
@@ -15,6 +16,7 @@ exports.postAddAccount = (req, res, next) => {
         account,
         password,
         editable,
+        readable,
         null);
 
     Account
@@ -71,6 +73,7 @@ exports.postEditAccount = (req, res, next) => {
     const accountUpdate = req.body.account;
     const passwordUpdate = req.body.password;
     const editableUpdate = req.body.editable;
+    const readableUpdate = req.body.readable;
     const accountID = req.body.accountId;
 
     const account = new Account(
@@ -80,6 +83,7 @@ exports.postEditAccount = (req, res, next) => {
         accountUpdate,
         passwordUpdate,
         editableUpdate,
+        readableUpdate,
         accountID
     );
     account
@@ -107,8 +111,8 @@ exports.checkLogin = (req, res, next) => {
     Account
         .findByAccount(account)
         .then(result => {
-            if (result.length == 0 || result[0]['password'] !== password) {
-                res.redirect('/');          //帳密錯誤回登入頁面
+            if (result.length == 0 || result[0]['password'] !== password || !(result[0]['readable']) ) {
+                res.redirect('/');          //帳密錯誤回登入頁面                // 沒權限
             } else if (result[0]['editable'] === 'on'){
                 res.redirect('/admin/product?edit=true');        //可登入 可編輯
             } else {

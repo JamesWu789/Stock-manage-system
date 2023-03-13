@@ -27,7 +27,7 @@ class Product {
         }
         return db_tem
             .then(result => {
-                console.log(result);
+                // console.log(result);
             })
             .catch(err => {
                 console.log(err);
@@ -41,7 +41,7 @@ class Product {
             .find()
             .toArray()              // 將所有檔案變成array(最好在檔案很多時用)
             .then(products => {
-                console.log(products);
+                // console.log(products);
                 return products;
             })
             .catch(err => {
@@ -56,7 +56,7 @@ class Product {
             .find({ _id: new mongodb.ObjectId(prodId) })
             .next()
             .then(product => {
-                console.log(product);
+                // console.log(product);
                 return product;
             })
             .catch(err => {

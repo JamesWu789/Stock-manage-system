@@ -34,6 +34,12 @@
                         <% }%>>
                 </label>
                 <br>
+                <label>登入權限
+                    <input type="checkbox" name="readable" <% if (account[ 'readable' ]){ %>
+                    <%= 'checked' %>
+                        <% }%>>
+                </label>
+                <br>
                 <input type="hidden" value="<%= account._id %>" name="accountId">
                 <button type="submit" class="edit-data">修改</button>
                 <a class="cancel" href="/account?edit=true">取消</a>

@@ -2,13 +2,14 @@ const getDb = require('../util/database').getDb;
 const mongodb = require('mongodb');
 
 class Account {
-    constructor(workerName, phoneNum, workItem, account, password, editable, id, userId) {
+    constructor(workerName, phoneNum, workItem, account, password, editable, readable, id, userId) {
         this.workerName = workerName;
         this.phoneNum = phoneNum;
         this.workItem = workItem;
         this.account = account;
         this.password = password;
         this.editable = editable;
+        this.readable = readable;
         this._id = id ? new mongodb.ObjectId(id) : null;    // 待研究 (下方save在更改資料時用)
         this.userId = userId;                               // 待研究
     }
