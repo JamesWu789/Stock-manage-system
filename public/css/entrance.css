@@ -66,7 +66,9 @@ button{
     margin: 18px auto;
     display: block;
 }
-
+#logo{
+    margin:7pt auto;
+}
 .icon{
     /* 可以跟文字放在一起(左右) */
     float: left;

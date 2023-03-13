@@ -129,7 +129,8 @@ p > img{
   width: calc(100% - 120pt);
   height: 477pt;
   max-height: calc(100% - 100pt);
-  display: block;
+  /* display: block; */
+  text-align: center;
   overflow-y: auto;
   background-color: gray;
 }
